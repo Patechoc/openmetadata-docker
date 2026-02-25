@@ -126,6 +126,13 @@ docker compose --env-file env-mysql -f docker-compose-openmetadata-mysql.yml up 
 ```
 
 
+and when finished, here is how to stop the containers:
+
+```shell   
+docker compose --env-file env-mysql -f docker-compose-openmetadata-mysql.yml down
+```
+
+
 ## Installation using Postgres instead of MySQL (NOT WORKING YET)
 
 https://docs.open-metadata.org/v1.12.x/deployment/bare-metal#postgres-version-12-0-or-higher
