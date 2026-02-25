@@ -1,0 +1,47 @@
+# =============================================================
+# OpenMetadata - Local Environment Variables
+# =============================================================
+# Docker Compose automatically loads this file.
+# Run with: docker compose -f docker-compose-openmetadata.yml up -d
+# =============================================================
+
+# ---- Database ----
+# Choose ONE block below (MySQL or PostgreSQL) and comment out the other.
+
+# -- Option A: MySQL (default) --
+# DB_DRIVER_CLASS=com.mysql.cj.jdbc.Driver
+# DB_SCHEME=mysql
+# DB_PARAMS=allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+# DB_PORT=3306
+
+# -- Option B: PostgreSQL --
+DB_DRIVER_CLASS=org.postgresql.Driver
+DB_SCHEME=postgresql
+DB_PARAMS=allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+DB_PORT=5432
+
+# -- Common --
+# Use the Docker Compose service name "postgresql" when running PostgreSQL
+# via this compose file. Use "localhost" only for an external/local instance.
+DB_HOST=postgresql
+DB_USER=openmetadata_user
+DB_USER_PASSWORD=openmetadata_password
+OM_DATABASE=openmetadata_db
+
+# ---- Elasticsearch / OpenSearch ----
+# Use the Docker Compose service name if running Elasticsearch in compose,
+# or "localhost" for an external/local instance.
+ELASTICSEARCH_HOST=localhost
+ELASTICSEARCH_PORT=9200
+ELASTICSEARCH_SCHEME=http
+ELASTICSEARCH_USER=
+ELASTICSEARCH_PASSWORD=
+SEARCH_TYPE=elasticsearch
+
+# ---- Airflow / Ingestion (optional for local dev) ----
+PIPELINE_SERVICE_CLIENT_ENDPOINT=http://ingestion:8080
+AIRFLOW_USERNAME=admin
+AIRFLOW_PASSWORD=admin
+
+# ---- JVM Heap (increase if running out of memory) ----
+# OPENMETADATA_HEAP_OPTS=-Xmx2G -Xms2G
