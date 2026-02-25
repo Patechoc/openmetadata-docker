@@ -1,0 +1,34 @@
+# =============================================================
+# OpenMetadata - MySQL Environment Variables
+# =============================================================
+# Run with:
+#   docker compose --env-file env-mysql -f docker-compose-openmetadata-mysql.yml up -d
+# Stop with:
+#   docker compose --env-file env-mysql -f docker-compose-openmetadata-mysql.yml down
+# =============================================================
+
+# ---- MySQL Database ----
+DB_DRIVER_CLASS=com.mysql.cj.jdbc.Driver
+DB_SCHEME=mysql
+DB_PARAMS=allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+DB_HOST=mysql
+DB_PORT=3306
+DB_USER=openmetadata_user
+DB_USER_PASSWORD=openmetadata_password
+OM_DATABASE=openmetadata_db
+
+# ---- Elasticsearch ----
+ELASTICSEARCH_HOST=elasticsearch
+ELASTICSEARCH_PORT=9200
+ELASTICSEARCH_SCHEME=http
+ELASTICSEARCH_USER=
+ELASTICSEARCH_PASSWORD=
+SEARCH_TYPE=elasticsearch
+
+# ---- Airflow / Ingestion (not running locally - errors are non-fatal) ----
+PIPELINE_SERVICE_CLIENT_ENDPOINT=http://ingestion:8080
+AIRFLOW_USERNAME=admin
+AIRFLOW_PASSWORD=admin
+
+# ---- JVM Heap (increase if running out of memory) ----
+# OPENMETADATA_HEAP_OPTS=-Xmx2G -Xms2G

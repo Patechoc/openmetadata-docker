@@ -1,0 +1,17 @@
+# Environment files with real credentials — never commit these
+.env
+env-*
+
+# Keep the example/template env files
+!env-mysql
+!env-postgres
+
+# Docker override files (local customisations)
+docker-compose.override.yml
+
+# Claude Code tooling
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
